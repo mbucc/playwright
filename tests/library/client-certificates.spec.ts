@@ -797,5 +797,25 @@ test.describe('browser', () => {
       await page.goto(serverURL);
       await expect(page.getByTestId('message')).toHaveText('Hello Alice, your certificate was issued by localhost!');
     });
+
+  test('pass with ca-signed client certificates when ca provided', async ({ playwright, startCCServer, asset }) => {
+    const serverURL = await startCCServer();
+    const request = await playwright.request.newContext({
+      ignoreHTTPSErrors: true,
+      clientCertificates: [{
+        origin: new URL(serverURL).origin,
+        ca: asset('client-certificates/ca/cert.pem'),
+        pfxPath: asset('client-certificates/client/ca-signed/cert.pfx'),
+        passphrase: 'secure'
+      }],
+    });
+    const response = await request.get(serverURL);
+    expect(response.url()).toBe(serverURL);
+    expect(response.status()).toBe(200);
+    expect(await response.text()).toContain('Hello Alice, your certificate was issued by localhost!');
+    await request.dispose();
   });
+
+  });
+
 });
