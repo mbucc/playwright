@@ -555,6 +555,8 @@ Does not enforce fixed viewport, allows resizing window in the headed mode.
   - `key` ?<[Buffer]> Direct value of the private key in PEM format.
   - `pfxPath` ?<[path]> Path to the PFX or PKCS12 encoded private key and certificate chain.
   - `pfx` ?<[Buffer]> Direct value of the PFX or PKCS12 encoded private key and certificate chain.
+  - `caPath` ?<[path]> Path to the PEM-encoded public certificate of the Certifate Authority that signed the client certificate.
+  - `ca` ?<[Buffer]> Direct value of the PEM-encoded public certificate of the Certifate Authority that signed the client certificate.
   - `passphrase` ?<[string]> Passphrase for the private key (PEM or PFX).
 
 TLS Client Authentication allows the server to request a client certificate and verify it.

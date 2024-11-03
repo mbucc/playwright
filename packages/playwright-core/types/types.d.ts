@@ -9754,6 +9754,16 @@ export interface Browser {
       pfx?: Buffer;
 
       /**
+       * Path to the PEM-encoded public certificate of the Certifate Authority that signed the client certificate.
+       */
+      caPath?: string;
+
+      /**
+       * Direct value of the PEM-encoded public certificate of the Certifate Authority that signed the client certificate.
+       */
+      ca?: Buffer;
+
+      /**
        * Passphrase for the private key (PEM or PFX).
        */
       passphrase?: string;
@@ -14771,6 +14781,16 @@ export interface BrowserType<Unused = {}> {
       pfx?: Buffer;
 
       /**
+       * Path to the PEM-encoded public certificate of the Certifate Authority that signed the client certificate.
+       */
+      caPath?: string;
+
+      /**
+       * Direct value of the PEM-encoded public certificate of the Certifate Authority that signed the client certificate.
+       */
+      ca?: Buffer;
+
+      /**
        * Passphrase for the private key (PEM or PFX).
        */
       passphrase?: string;
@@ -17456,6 +17476,16 @@ export interface APIRequest {
        * Direct value of the PFX or PKCS12 encoded private key and certificate chain.
        */
       pfx?: Buffer;
+
+      /**
+       * Path to the PEM-encoded public certificate of the Certifate Authority that signed the client certificate.
+       */
+      caPath?: string;
+
+      /**
+       * Direct value of the PEM-encoded public certificate of the Certifate Authority that signed the client certificate.
+       */
+      ca?: Buffer;
 
       /**
        * Passphrase for the private key (PEM or PFX).
@@ -21880,6 +21910,16 @@ export interface BrowserContextOptions {
      * Direct value of the PFX or PKCS12 encoded private key and certificate chain.
      */
     pfx?: Buffer;
+
+    /**
+     * Path to the PEM-encoded public certificate of the Certifate Authority that signed the client certificate.
+     */
+    caPath?: string;
+
+    /**
+     * Direct value of the PEM-encoded public certificate of the Certifate Authority that signed the client certificate.
+     */
+    ca?: Buffer;
 
     /**
      * Passphrase for the private key (PEM or PFX).
